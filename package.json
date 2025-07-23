@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./src/server/server.js",
     "build": "webpack --mode production",
-    "dev:server": "nodemon --exec babel-node ./src/server/server.js",
+    "dev:server": "node ./src/server/server.js",
     "dev:client": "webpack serve --mode development",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\""
   },
@@ -33,6 +33,7 @@
     "@heroui/react": "^2.8.1",
     "chalk": "^5.4.1",
     "express": "^5.1.0",
+    "hi-base32": "^0.5.1",
     "log4js": "^6.9.1",
     "moment": "^2.30.1",
     "react": "^19.1.0",
