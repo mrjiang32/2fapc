@@ -18,6 +18,13 @@ const __dirname = path.dirname(__filename);
 const log = logmy.get_logger("Server");
 
 app.use((req, res, next) => {
+    res.on("finish", () => {
+        log.info(`${req.method} ${req.originalUrl} - ${res.statusCode}`);
+    });
+    next();
+});
+
+app.use((req, res, next) => {
     if(req.path.startsWith("/api")) {
         log.info(`API Request: ${req.method} ${req.path}`);
         if (req.headers.authorization !== `Bearer ${config.token}`) {
